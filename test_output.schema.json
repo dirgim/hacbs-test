@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema#",
+  "title": "Test Output",
+  "description": "The Test output of the Tekton result is an object that includes the context about the test along with counters for all checks",
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "string",
+      "description": "The outcome of the testing task, can be `SUCCESS`, `FAILURE`, `WARNING`, `SKIPPED` or `ERROR`"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Optional, the rego namespace of the test policy"
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "An UNIX epoch timestamp of the test completion time"
+    },
+    "successes": {
+      "type": "integer",
+      "description": "The number of successful checks in the form of an integer"
+    },
+    "note": {
+      "type": "string",
+      "description": "Optional, a short note to provide additional information about the test",
+      "maxLength": 280
+    },
+    "failures": {
+      "type": "integer",
+      "description": "The number of failed checks in the form of an integer"
+    },
+    "warnings": {
+      "type": "integer",
+      "description": "The number of warning checks in the form of an integer"
+    }
+  },
+  "required": [
+    "result",
+    "timestamp",
+    "successes",
+    "failures",
+    "warnings"
+  ]
+}
